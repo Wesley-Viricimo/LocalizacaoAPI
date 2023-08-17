@@ -1,6 +1,6 @@
 package io.github.WesleyViricimo;
 
-import io.github.WesleyViricimo.domain.repository.CidadeRepository;
+import io.github.WesleyViricimo.domain.service.CidadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,35 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LocalizacaoApplication implements CommandLineRunner {
 
     @Autowired
-    private CidadeRepository repository;
+    private CidadeService service;
 
     @Override
     public void run(String... args) throws Exception {
-        listarCidadePorQtdeMenorHabitantes();
-    }
-
-    void listarCidade(){
-        repository.findAll().forEach(System.out::println);
-    }
-
-    void listarCidadePorNome(){
-        repository.findByNome("Porto Velho").forEach(System.out::println);
-    }
-
-    void listarCidadePorHabitantes(){
-        repository.findByHabitantes(12345678L).forEach(System.out::println);
-    }
-
-    void listarCidadePorNomeLike(){
-        repository.findByNomeLike("porto%").forEach(System.out::println);
-    }
-
-    void listarCidadePorQtdeMenorHabitantes(){
-        repository.findByHabitantesLessThanAndNomeLike(300L, "Br%").forEach(System.out::println);
-    }
-
-    void listarCidadePorQtdeMaiorHabitantes(){
-        repository.findByHabitantesGreaterThan(12345677L).forEach(System.out::println);
+        service.listarCidadePorQtdeMenorHabitantes();
     }
 
     public static void main(String[] args) {
