@@ -16,5 +16,5 @@ VALUES
     (7, 'Palmas', 1122334),
     (8, 'Recife', 1122334),
     (9, 'Natal', 1122334),
-    (10, 'Brasilia', 1122334),
+    (10, 'Brasilia', 299),
     (11, 'Fortaleza', 112233455);
