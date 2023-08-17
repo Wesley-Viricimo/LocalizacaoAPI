@@ -1,13 +1,10 @@
 package io.github.WesleyViricimo;
 
-import io.github.WesleyViricimo.domain.entity.Cidade;
 import io.github.WesleyViricimo.domain.repository.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import javax.transaction.Transactional;
 
 @SpringBootApplication
 public class LocalizacaoApplication implements CommandLineRunner {
@@ -18,10 +15,20 @@ public class LocalizacaoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         listarCidade();
+        listarCidadePorNome();
+        listarCidadePorHabitantes();
     }
 
     void listarCidade(){
         repository.findAll().forEach(System.out::println);
+    }
+
+    void listarCidadePorNome(){
+        repository.findByNome("Porto Velho").forEach(System.out::println);
+    }
+
+    void listarCidadePorHabitantes(){
+        repository.findByHabitantes(12345678L).forEach(System.out::println);
     }
 
     public static void main(String[] args) {
