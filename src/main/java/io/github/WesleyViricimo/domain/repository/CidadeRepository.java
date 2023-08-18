@@ -3,11 +3,12 @@ package io.github.WesleyViricimo.domain.repository;
 import io.github.WesleyViricimo.domain.entity.Cidade;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface CidadeRepository extends JpaRepository<Cidade, Integer> {
+public interface CidadeRepository extends JpaRepository<Cidade, Integer>, JpaSpecificationExecutor<Cidade> {
 
         //Se for desejável que seja realizada uma consulta através de alguma propriedade o nome do método deverá ser iniciada com findBy e posteriormente o nome da propriedade que será utilizada como filtro
         List<Cidade> findByNome(String nome);
